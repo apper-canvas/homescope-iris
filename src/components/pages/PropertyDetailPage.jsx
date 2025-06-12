@@ -3,12 +3,13 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
-import ApperIcon from '../components/ApperIcon';
-import ImageGallery from '../components/ImageGallery';
-import ContactForm from '../components/ContactForm';
-import { propertyService, savedPropertyService } from '../services';
+import ApperIcon from '@/components/ApperIcon';
+import ImageGallery from '@/components/organisms/ImageGallery';
+import ContactForm from '@/components/organisms/ContactForm';
+import Button from '@/components/atoms/Button';
+import { propertyService, savedPropertyService } from '@/services';
 
-const PropertyDetail = () => {
+const PropertyDetailPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const [property, setProperty] = useState(null);
@@ -102,12 +103,12 @@ const PropertyDetail = () => {
           <p className="text-gray-600 mb-4">
             The property you're looking for doesn't exist or has been removed.
           </p>
-          <button
+          <Button
             onClick={() => navigate('/')}
-            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+            className="px-4 py-2"
           >
             Browse Properties
-          </button>
+          </Button>
         </motion.div>
       </div>
     );
@@ -116,15 +117,16 @@ const PropertyDetail = () => {
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       {/* Back Button */}
-      <motion.button
+      <Button
+        variant="ghost"
+        onClick={() => navigate(-1)}
+        className="flex items-center space-x-2 text-gray-600 hover:text-primary mb-6"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        onClick={() => navigate(-1)}
-        className="flex items-center space-x-2 text-gray-600 hover:text-primary mb-6 transition-colors"
       >
         <ApperIcon name="ArrowLeft" size={20} />
         <span>Back to listings</span>
-      </motion.button>
+      </Button>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main Content */}
@@ -154,18 +156,17 @@ const PropertyDetail = () => {
                   {property.address.street}, {property.address.city}, {property.address.state} {property.address.zipCode}
                 </p>
               </div>
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+              <Button
+                variant="ghost"
                 onClick={handleSaveProperty}
-                className={`p-2 rounded-full transition-colors ${
+                className={`p-2 rounded-full ${
                   isSaved ? 'text-red-500 bg-red-50' : 'text-gray-400 hover:text-red-500 hover:bg-red-50'
                 }`}
               >
                 <motion.div animate={isSaved ? { scale: [1, 1.2, 1] } : {}}>
                   <ApperIcon name="Heart" size={24} className={isSaved ? 'fill-current' : ''} />
                 </motion.div>
-              </motion.button>
+              </Button>
             </div>
 
             <div className="flex items-center space-x-6 text-gray-600 mb-6">
@@ -238,37 +239,29 @@ const PropertyDetail = () => {
             </div>
 
             <div className="space-y-3">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <Button
                 onClick={() => setShowContactForm(true)}
-                className="w-full bg-primary text-white py-3 px-4 rounded-md font-medium hover:bg-primary/90 transition-colors"
+                className="w-full"
               >
                 Contact Agent
-              </motion.button>
+              </Button>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full border border-primary text-primary py-3 px-4 rounded-md font-medium hover:bg-primary/5 transition-colors flex items-center justify-center space-x-2"
+              <Button
+                variant="secondary"
+                className="w-full flex items-center justify-center space-x-2"
               >
                 <ApperIcon name="Calendar" size={18} />
                 <span>Schedule Tour</span>
-              </motion.button>
+              </Button>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
+              <Button
+                variant={isSaved ? 'outline-red' : 'outline'}
                 onClick={handleSaveProperty}
-                className={`w-full py-3 px-4 rounded-md font-medium transition-colors flex items-center justify-center space-x-2 ${
-                  isSaved
-                    ? 'bg-red-50 text-red-600 border border-red-200'
-                    : 'border border-gray-300 text-gray-600 hover:bg-gray-50'
-                }`}
+                className="w-full flex items-center justify-center space-x-2"
               >
                 <ApperIcon name="Heart" size={18} className={isSaved ? 'fill-current' : ''} />
                 <span>{isSaved ? 'Saved' : 'Save Property'}</span>
-              </motion.button>
+              </Button>
             </div>
 
             <div className="mt-6 pt-6 border-t border-gray-200">
@@ -306,12 +299,14 @@ const PropertyDetail = () => {
               <div className="bg-white rounded-lg shadow-xl max-w-md w-full max-h-[90vh] overflow-y-auto">
                 <div className="flex items-center justify-between p-6 border-b border-gray-200">
                   <h3 className="text-lg font-semibold text-gray-900">Contact Agent</h3>
-                  <button
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={() => setShowContactForm(false)}
-                    className="text-gray-400 hover:text-gray-600"
+                    className="text-gray-400 hover:text-gray-600 p-0"
                   >
                     <ApperIcon name="X" size={20} />
-                  </button>
+                  </Button>
                 </div>
                 <div className="p-6">
                   <ContactForm
@@ -329,4 +324,4 @@ const PropertyDetail = () => {
   );
 };
 
-export default PropertyDetail;
+export default PropertyDetailPage;

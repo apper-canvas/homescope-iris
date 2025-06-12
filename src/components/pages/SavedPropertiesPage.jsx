@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { toast } from 'react-toastify';
-import PropertyGrid from '../components/PropertyGrid';
-import ApperIcon from '../components/ApperIcon';
-import { savedPropertyService, propertyService } from '../services';
+import PropertyGrid from '@/components/organisms/PropertyGrid';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
+import { savedPropertyService, propertyService } from '@/services';
 
-const SavedProperties = () => {
+const SavedPropertiesPage = () => {
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,17 +18,17 @@ const SavedProperties = () => {
       try {
         const savedItems = await savedPropertyService.getAll();
         const propertyIds = savedItems.map(item => item.propertyId);
-        
+
         if (propertyIds.length === 0) {
           setProperties([]);
           return;
         }
 
         const allProperties = await propertyService.getAll();
-        const savedProperties = allProperties.filter(property => 
+        const savedProperties = allProperties.filter(property =>
           propertyIds.includes(property.id)
         );
-        
+
         setProperties(savedProperties);
       } catch (err) {
         setError(err.message || 'Failed to load saved properties');
@@ -89,12 +90,12 @@ const SavedProperties = () => {
           <ApperIcon name="AlertCircle" className="w-16 h-16 text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-display text-gray-900 mb-2">Something went wrong</h2>
           <p className="text-gray-600 mb-4">{error}</p>
-          <button
+          <Button
             onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+            className="px-4 py-2"
           >
             Try Again
-          </button>
+          </Button>
         </motion.div>
       </div>
     );
@@ -138,18 +139,16 @@ const SavedProperties = () => {
           <p className="mt-2 text-gray-500 mb-6">
             Start browsing properties and save your favorites here
           </p>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Button
             onClick={() => window.location.href = '/buy'}
-            className="px-6 py-3 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+            className="px-6 py-3"
           >
             Browse Properties
-          </motion.button>
+          </Button>
         </motion.div>
       ) : (
-        <PropertyGrid 
-          properties={properties} 
+        <PropertyGrid
+          properties={properties}
           showRemoveButton={true}
           onRemove={handleRemoveProperty}
         />
@@ -158,4 +157,4 @@ const SavedProperties = () => {
   );
 };
 
-export default SavedProperties;
+export default SavedPropertiesPage;

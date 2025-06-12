@@ -2,12 +2,13 @@ import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
-import MapComponent from '../components/MapComponent';
-import PropertyCard from '../components/PropertyCard';
-import ApperIcon from '../components/ApperIcon';
-import { propertyService } from '../services';
+import MapComponent from '@/components/organisms/MapComponent';
+import PropertyCard from '@/components/molecules/PropertyCard';
+import ApperIcon from '@/components/ApperIcon';
+import Button from '@/components/atoms/Button';
+import { propertyService } from '@/services';
 
-const MapView = () => {
+const MapViewPage = () => {
   const navigate = useNavigate();
   const [properties, setProperties] = useState([]);
   const [selectedProperty, setSelectedProperty] = useState(null);
@@ -66,12 +67,12 @@ const MapView = () => {
           <ApperIcon name="AlertCircle" className="w-16 h-16 text-red-500 mx-auto mb-4" />
           <h2 className="text-2xl font-display text-gray-900 mb-2">Unable to load map</h2>
           <p className="text-gray-600 mb-4">{error}</p>
-          <button
+          <Button
             onClick={() => window.location.reload()}
-            className="px-4 py-2 bg-primary text-white rounded-md hover:bg-primary/90 transition-colors"
+            className="px-4 py-2"
           >
             Try Again
-          </button>
+          </Button>
         </motion.div>
       </div>
     );
@@ -86,30 +87,26 @@ const MapView = () => {
             <h1 className="text-2xl font-display font-bold text-gray-900">Map View</h1>
             <p className="text-gray-600">{properties.length} properties shown</p>
           </div>
-          
+
           <div className="flex items-center space-x-2">
-            <button
+            <Button
+              variant={viewType === 'map' ? 'primary' : 'ghost'}
               onClick={() => setViewType('map')}
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                viewType === 'map'
-                  ? 'bg-primary text-white'
-                  : 'text-gray-600 hover:text-primary hover:bg-primary/5'
-              }`}
+              size="sm"
+              className="flex items-center space-x-1"
             >
-              <ApperIcon name="Map" size={16} className="mr-1" />
-              Map
-            </button>
-            <button
+              <ApperIcon name="Map" size={16} />
+              <span>Map</span>
+            </Button>
+            <Button
+              variant={viewType === 'list' ? 'primary' : 'ghost'}
               onClick={() => setViewType('list')}
-              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                viewType === 'list'
-                  ? 'bg-primary text-white'
-                  : 'text-gray-600 hover:text-primary hover:bg-primary/5'
-              }`}
+              size="sm"
+              className="flex items-center space-x-1"
             >
-              <ApperIcon name="List" size={16} className="mr-1" />
-              List
-            </button>
+              <ApperIcon name="List" size={16} />
+              <span>List</span>
+            </Button>
           </div>
         </div>
       </div>
@@ -138,12 +135,14 @@ const MapView = () => {
               >
                 <div className="flex items-center justify-between p-4 border-b border-gray-200">
                   <h3 className="font-semibold text-gray-900">Property Details</h3>
-                  <button
+                  <Button
+                    variant="ghost"
+                    size="sm"
                     onClick={() => setSelectedProperty(null)}
-                    className="text-gray-400 hover:text-gray-600"
+                    className="text-gray-400 hover:text-gray-600 p-0"
                   >
                     <ApperIcon name="X" size={20} />
-                  </button>
+                  </Button>
                 </div>
                 <div className="flex-1 overflow-y-auto p-4">
                   <PropertyCard
@@ -182,4 +181,4 @@ const MapView = () => {
   );
 };
 
-export default MapView;
+export default MapViewPage;
