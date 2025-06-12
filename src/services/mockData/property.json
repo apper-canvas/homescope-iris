@@ -1,0 +1,230 @@
+[
+  {
+    "id": "1",
+    "title": "Stunning Modern Townhouse in Downtown",
+    "price": 485000,
+    "forRent": false,
+    "address": {
+      "street": "123 Maple Street",
+      "city": "Portland",
+      "state": "OR",
+      "zipCode": "97201"
+    },
+    "bedrooms": 3,
+    "bathrooms": 2.5,
+    "squareFeet": 1850,
+    "propertyType": "Townhouse",
+    "images": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800",
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800",
+      "https://images.unsplash.com/photo-1591474200742-8e512e6f98f8?w=800"
+    ],
+    "description": "This beautifully designed modern townhouse offers the perfect blend of urban convenience and residential comfort. Located in the heart of downtown Portland, this property features an open-concept living space with high ceilings, hardwood floors throughout, and a gourmet kitchen with stainless steel appliances. The master suite includes a walk-in closet and spa-like bathroom. Additional highlights include a private patio, two-car garage, and close proximity to restaurants, shopping, and public transportation.",
+    "features": [
+      "Hardwood Floors",
+      "Stainless Steel Appliances",
+      "Two-Car Garage",
+      "Private Patio",
+      "Walk-in Closets",
+      "Central Air Conditioning",
+      "Modern Kitchen",
+      "Spa-like Master Bath"
+    ],
+    "listingDate": "2024-01-15T00:00:00.000Z",
+    "coordinates": {
+      "lat": 45.5152,
+      "lng": -122.6784
+    }
+  },
+  {
+    "id": "2",
+    "title": "Spacious Family Home with Large Backyard",
+    "price": 3200,
+    "forRent": true,
+    "address": {
+      "street": "456 Oak Avenue",
+      "city": "Seattle",
+      "state": "WA",
+      "zipCode": "98101"
+    },
+    "bedrooms": 4,
+    "bathrooms": 3,
+    "squareFeet": 2400,
+    "propertyType": "House",
+    "images": [
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800",
+      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800"
+    ],
+    "description": "Perfect for families seeking space and comfort, this well-maintained single-family home sits on a quiet residential street with mature trees and friendly neighbors. The open floor plan connects the living, dining, and kitchen areas, making it ideal for entertaining. The large backyard features a deck perfect for barbecues and a spacious lawn for children to play. The home includes a finished basement that can serve as a family room or home office, plus ample storage throughout.",
+    "features": [
+      "Large Backyard",
+      "Finished Basement",
+      "Deck",
+      "Family Room",
+      "Home Office Space",
+      "Laundry Room",
+      "Storage",
+      "Quiet Neighborhood",
+      "Mature Trees"
+    ],
+    "listingDate": "2024-01-20T00:00:00.000Z",
+    "coordinates": {
+      "lat": 47.6062,
+      "lng": -122.3321
+    }
+  },
+  {
+    "id": "3",
+    "title": "Luxury High-Rise Apartment with City Views",
+    "price": 2800,
+    "forRent": true,
+    "address": {
+      "street": "789 Pine Street, Unit 2504",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94108"
+    },
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "squareFeet": 1200,
+    "propertyType": "Apartment",
+    "images": [
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800",
+      "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800",
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800"
+    ],
+    "description": "Experience luxury living in this stunning 25th-floor apartment with breathtaking panoramic city views. This modern unit features floor-to-ceiling windows, premium finishes, and an open-concept design that maximizes natural light. The gourmet kitchen boasts quartz countertops, custom cabinetry, and top-of-the-line appliances. Building amenities include a rooftop terrace, fitness center, concierge services, and valet parking. Located in the heart of downtown with easy access to public transportation, fine dining, and cultural attractions.",
+    "features": [
+      "City Views",
+      "Floor-to-Ceiling Windows",
+      "Quartz Countertops",
+      "Rooftop Terrace",
+      "Fitness Center",
+      "Concierge Service",
+      "Valet Parking",
+      "In-Unit Laundry",
+      "High-End Appliances"
+    ],
+    "listingDate": "2024-01-18T00:00:00.000Z",
+    "coordinates": {
+      "lat": 37.7749,
+      "lng": -122.4194
+    }
+  },
+  {
+    "id": "4",
+    "title": "Charming Victorian Cottage",
+    "price": 725000,
+    "forRent": false,
+    "address": {
+      "street": "321 Rose Lane",
+      "city": "San Francisco",
+      "state": "CA",
+      "zipCode": "94117"
+    },
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "squareFeet": 950,
+    "propertyType": "House",
+    "images": [
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800",
+      "https://images.unsplash.com/photo-1505843795480-5cfb3c03f6ff?w=800",
+      "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800"
+    ],
+    "description": "Step back in time with this beautifully preserved Victorian cottage nestled in a picturesque neighborhood. Original architectural details include crown molding, bay windows, and hardwood floors that have been lovingly maintained. The cozy living spaces are filled with character and charm, while modern updates ensure comfort and convenience. The private garden offers a peaceful retreat in the city, and the prime location provides easy access to parks, cafes, and public transportation.",
+    "features": [
+      "Victorian Architecture",
+      "Original Hardwood Floors",
+      "Bay Windows",
+      "Crown Molding",
+      "Private Garden",
+      "Updated Kitchen",
+      "Character Details",
+      "Quiet Street",
+      "Near Parks"
+    ],
+    "listingDate": "2024-01-12T00:00:00.000Z",
+    "coordinates": {
+      "lat": 37.7699,
+      "lng": -122.4444
+    }
+  },
+  {
+    "id": "5",
+    "title": "Contemporary Condo with Mountain Views",
+    "price": 1950,
+    "forRent": true,
+    "address": {
+      "street": "555 Alpine Drive, Unit 8B",
+      "city": "Denver",
+      "state": "CO",
+      "zipCode": "80202"
+    },
+    "bedrooms": 1,
+    "bathrooms": 1,
+    "squareFeet": 750,
+    "propertyType": "Condo",
+    "images": [
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800",
+      "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800",
+      "https://images.unsplash.com/photo-1567767292278-a4f21aa2d36e?w=800"
+    ],
+    "description": "Wake up to stunning mountain views every morning in this sleek contemporary condo. The open-plan living area features modern finishes, including polished concrete floors and designer lighting. The compact but efficient kitchen includes stainless steel appliances and ample storage. Large windows flood the space with natural light and showcase the spectacular Rocky Mountain backdrop. Building amenities include a fitness center, rooftop deck, and secure parking. Located minutes from downtown Denver and outdoor recreation opportunities.",
+    "features": [
+      "Mountain Views",
+      "Polished Concrete Floors",
+      "Modern Finishes",
+      "Stainless Steel Appliances",
+      "Large Windows",
+      "Rooftop Deck",
+      "Fitness Center",
+      "Secure Parking",
+      "Near Downtown"
+    ],
+    "listingDate": "2024-01-22T00:00:00.000Z",
+    "coordinates": {
+      "lat": 39.7392,
+      "lng": -104.9903
+    }
+  },
+  {
+    "id": "6",
+    "title": "Executive Estate with Pool and Tennis Court",
+    "price": 1250000,
+    "forRent": false,
+    "address": {
+      "street": "888 Country Club Drive",
+      "city": "Austin",
+      "state": "TX",
+      "zipCode": "78746"
+    },
+    "bedrooms": 5,
+    "bathrooms": 4,
+    "squareFeet": 4200,
+    "propertyType": "House",
+    "images": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800",
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800"
+    ],
+    "description": "This magnificent executive estate offers the ultimate in luxury living with resort-style amenities on nearly two acres of manicured grounds. The grand foyer leads to spacious formal and informal living areas, including a gourmet kitchen with professional-grade appliances and a butler's pantry. The master suite is a private retreat with sitting area, fireplace, and spa bathroom. Outdoor features include a sparkling pool with spa, tennis court, covered patios, and mature landscaping. Additional amenities include a three-car garage, wine cellar, and home theater.",
+    "features": [
+      "Swimming Pool",
+      "Tennis Court",
+      "Wine Cellar",
+      "Home Theater",
+      "Three-Car Garage",
+      "Butler's Pantry",
+      "Master Suite Fireplace",
+      "Professional Kitchen",
+      "Mature Landscaping",
+      "Covered Patios"
+    ],
+    "listingDate": "2024-01-10T00:00:00.000Z",
+    "coordinates": {
+      "lat": 30.2672,
+      "lng": -97.7431
+    }
+  }
+]
