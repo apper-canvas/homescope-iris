@@ -3,7 +3,97 @@ import { motion } from 'framer-motion';
 import ApperIcon from '@/components/ApperIcon';
 import Button from '@/components/atoms/Button';
 import FormField from '@/components/molecules/FormField';
-<FormField
+
+const ContactForm = ({ onSubmit, onCancel, propertyId }) => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+
+  const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    if (!formData.name.trim()) {
+      newErrors.name = 'Full name is required';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'Email address is required';
+    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
+      newErrors.email = 'Please enter a valid email address';
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = 'Phone number is required';
+    }
+
+    if (!formData.message.trim()) {
+      newErrors.message = 'Message is required';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleInputChange = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
+    }));
+
+    // Clear error when user starts typing
+    if (errors[field]) {
+      setErrors(prev => ({
+        ...prev,
+        [field]: ''
+      }));
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    if (!validateForm()) {
+      return;
+    }
+
+    setSubmitting(true);
+
+    try {
+      await onSubmit?.({
+        ...formData,
+        propertyId
+      });
+      
+      // Reset form on successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: ''
+      });
+    } catch (error) {
+      console.error('Form submission error:', error);
+      // Handle submission error if needed
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  return (
+    <motion.form
+      onSubmit={handleSubmit}
+      className="space-y-6"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+    >
+      <FormField
         label="Full Name"
         id="name"
         value={formData.name}
@@ -12,7 +102,8 @@ import FormField from '@/components/molecules/FormField';
         error={errors.name}
         required
       />
-<FormField
+      
+      <FormField
         label="Email Address"
         id="email"
         type="email"
@@ -22,7 +113,8 @@ import FormField from '@/components/molecules/FormField';
         error={errors.email}
         required
       />
-<FormField
+      
+      <FormField
         label="Phone Number"
         id="phone"
         type="tel"
@@ -32,7 +124,8 @@ import FormField from '@/components/molecules/FormField';
         error={errors.phone}
         required
       />
-<FormField
+      
+      <FormField
         label="Message"
         id="message"
         type="textarea"
@@ -43,7 +136,9 @@ import FormField from '@/components/molecules/FormField';
         error={errors.message}
         required
       />
-<Button
+
+      <div className="flex gap-4 pt-4">
+        <Button
           type="submit"
           disabled={submitting}
           className="flex-1"
@@ -60,7 +155,8 @@ import FormField from '@/components/molecules/FormField';
             </>
           )}
         </Button>
-<Button
+        
+        <Button
           type="button"
           onClick={onCancel}
           variant="outline"
@@ -68,3 +164,9 @@ import FormField from '@/components/molecules/FormField';
         >
           Cancel
         </Button>
+      </div>
+    </motion.form>
+  );
+};
+
+export default ContactForm;
